@@ -13,6 +13,7 @@
 		0B0A03CA2001AA38005A44EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B0A03C92001AA38005A44EF /* Assets.xcassets */; };
 		0B0A03CD2001AA38005A44EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B0A03CB2001AA38005A44EF /* LaunchScreen.storyboard */; };
 		0B0A03D72001D658005A44EF /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A03D62001D658005A44EF /* PlaySoundsViewController.swift */; };
+		0B0A03D9200307F1005A44EF /* PlaySoundsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A03D8200307F0005A44EF /* PlaySoundsViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0B0A03CC2001AA38005A44EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B0A03CE2001AA38005A44EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B0A03D62001D658005A44EF /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		0B0A03D8200307F0005A44EF /* PlaySoundsViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0B0A03CB2001AA38005A44EF /* LaunchScreen.storyboard */,
 				0B0A03CE2001AA38005A44EF /* Info.plist */,
 				0B0A03D62001D658005A44EF /* PlaySoundsViewController.swift */,
+				0B0A03D8200307F0005A44EF /* PlaySoundsViewControllerExtension.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0A03D9200307F1005A44EF /* PlaySoundsViewControllerExtension.swift in Sources */,
 				0B0A03C52001AA38005A44EF /* RecordSoundsViewController.swift in Sources */,
 				0B0A03D72001D658005A44EF /* PlaySoundsViewController.swift in Sources */,
 				0B0A03C32001AA38005A44EF /* AppDelegate.swift in Sources */,
