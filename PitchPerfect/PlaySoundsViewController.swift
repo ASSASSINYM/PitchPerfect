@@ -48,7 +48,7 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
-    @IBAction func stopRecording(_ sender: AnyObject) {
+    @IBAction func stopPlayingAudio(_ sender: AnyObject) {
         stopAudio()
     }
 
