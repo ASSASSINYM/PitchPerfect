@@ -13,6 +13,4 @@ This iOS application was built to learn iOS development basics.
 Husayn Abdul Hakeem - [husaynhakeem@gmail.com](husaynhakeem@gmail.com)
 
 ## Demo
-![alt text](https://github.com/husaynhakeem/PitchPerfect/blob/master/screenshots/recording%20-%20person%201.png)
-![alt text](https://github.com/husaynhakeem/PitchPerfect/blob/master/screenshots/recording%20-%20person%202.png)
-![alt text](https://github.com/husaynhakeem/PitchPerfect/blob/master/screenshots/recording%20-%20done.png)
+![alt text](https://github.com/husaynhakeem/PitchPerfect/blob/master/screenshots/pitchPerfect%20(1).png)
