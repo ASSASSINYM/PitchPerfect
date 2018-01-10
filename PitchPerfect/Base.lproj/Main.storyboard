@@ -19,15 +19,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-x0-Qdb" userLabel="Person">
+                                <rect key="frame" x="144" y="179.5" width="88" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-Op-1D6">
-                                <rect key="frame" x="110" y="288" width="155" height="155"/>
+                                <rect key="frame" x="110" y="256" width="155" height="155"/>
                                 <state key="normal" image="Record"/>
                                 <connections>
                                     <action selector="startOrStopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aub-hQ-hCu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNl-RD-T7V">
-                                <rect key="frame" x="136" y="167" width="102" height="21"/>
+                                <rect key="frame" x="137" y="461" width="102" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,15 +41,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WNl-RD-T7V" firstAttribute="centerX" secondItem="5dT-Op-1D6" secondAttribute="centerX" id="3yz-qS-dz5"/>
-                            <constraint firstItem="5dT-Op-1D6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5Ms-wJ-Air"/>
-                            <constraint firstItem="5dT-Op-1D6" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="f5W-oY-aEh"/>
-                            <constraint firstItem="5dT-Op-1D6" firstAttribute="top" secondItem="WNl-RD-T7V" secondAttribute="bottom" constant="100" id="ztc-rN-0Xy"/>
+                            <constraint firstItem="WNl-RD-T7V" firstAttribute="top" secondItem="5dT-Op-1D6" secondAttribute="bottom" constant="50" id="2wx-Mc-dDf"/>
+                            <constraint firstItem="rwa-x0-Qdb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8aZ-vf-yvP"/>
+                            <constraint firstItem="5dT-Op-1D6" firstAttribute="top" secondItem="rwa-x0-Qdb" secondAttribute="bottom" constant="50" id="BQu-96-0VA"/>
+                            <constraint firstItem="WNl-RD-T7V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xjo-mI-A3X"/>
+                            <constraint firstItem="5dT-Op-1D6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="he3-EN-YDi"/>
+                            <constraint firstItem="5dT-Op-1D6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nPj-kR-z3J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="mzp-Qz-J6F"/>
                     <connections>
+                        <outlet property="currentUserlabel" destination="rwa-x0-Qdb" id="wCQ-iq-CVV"/>
                         <outlet property="recordButton" destination="5dT-Op-1D6" id="TXb-fv-EZO"/>
                         <outlet property="recordLabel" destination="WNl-RD-T7V" id="pCh-3T-Pfi"/>
                         <segue destination="31f-xE-Pej" kind="show" identifier="stopRecording" id="crh-FT-cCG"/>

@@ -11,27 +11,46 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
+    @IBOutlet weak var currentUserlabel: UILabel!
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     
     enum RecordingState { case recording, notRecording }
+    enum User { case userOne, userTwo }
+    
     var currentRecordingState = RecordingState.notRecording
+    var currentUser = User.userOne
     
     var audioRecorder: AVAudioRecorder!
     
+    override func viewWillAppear(_ animated: Bool) {
+        prepareRecording()
+        configureUI()
+    }
+    
     @IBAction func startOrStopRecording(_ sender: AnyObject) {
-        if (currentRecordingState == .notRecording) {
+        if (currentRecordingState == .notRecording && currentUser == .userOne) {
             currentRecordingState = .recording
             configureUI()
             startRecording()
+        } else if (currentRecordingState == .recording && currentUser == .userOne) {
+            currentRecordingState = .notRecording
+            currentUser = .userTwo
+            configureUI()
+            pauseRecording()
+        } else if (currentRecordingState == .notRecording && currentUser == .userTwo) {
+            currentRecordingState = .recording
+            configureUI()
+            continueRecording()
         } else {
             currentRecordingState = .notRecording
+            currentUser = .userOne
             configureUI()
             stopRecording()
         }
     }
-
-    private func startRecording() {
+    
+    private func prepareRecording() {
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let recordingFileName = "recordedAudio.wav"
         let pathArray = [dirPath, recordingFileName]
@@ -43,6 +62,18 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioRecorder = AVAudioRecorder(url: filePath, settings: [:])
         audioRecorder.delegate = self
         audioRecorder.isMeteringEnabled = true
+    }
+
+    private func startRecording() {
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
+    }
+    
+    private func pauseRecording() {
+        audioRecorder.pause()
+    }
+    
+    private func continueRecording() {
         audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
@@ -54,16 +85,26 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     private func configureUI() {
-        var label = "Tap to start recording"
-        var imageName = "Record.png"
-        
-        if (currentRecordingState == .recording) {
-            label = "Tap to finish recording"
-            imageName = "Stop.png"
+        displayCurrentUser()
+        displayRecordingMessage()
+    }
+    
+    private func displayCurrentUser() {
+        if (currentUser == .userOne) {
+            currentUserlabel.text = "Person 1"
+        } else {
+            currentUserlabel.text = "Person 2"
         }
-        
-        recordLabel.text = label
-        recordButton.setImage(UIImage(named: imageName), for: UIControlState.normal)
+    }
+    
+    private func displayRecordingMessage() {
+        if (currentRecordingState == .recording) {
+            recordLabel.text = "Tap to finish recording"
+            recordButton.setImage(UIImage(named: "Stop.png"), for: UIControlState.normal)
+        } else {
+            recordLabel.text = "Tap to start recording"
+            recordButton.setImage(UIImage(named: "Record.png"), for: UIControlState.normal)
+        }
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
